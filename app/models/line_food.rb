@@ -1,7 +1,6 @@
 class LineFood < ApplicationRecord
   belongs_to :food
   belongs_to :restaurant
-  belongs_to :order, optional: true # optional: trueにすることで関連付けが任意になる
 
   validates :count, numericality: { greater_than: 0 }
 
