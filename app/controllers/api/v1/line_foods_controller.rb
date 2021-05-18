@@ -1,7 +1,7 @@
 module Api
   module V1
     class LineFoodsController < ApplicationController
-      before_action :set_food, only: %i[create]
+      before_action :set_food, only: %i[create replace]
 
       def index # 仮注文の一覧
         line_foods = LineFood.active # 全てのLineFoodモデルからactiveなものを取得
@@ -43,6 +43,26 @@ module Api
           render json: {}, status: :internal_server_error
         end
       end
+
+      def replace
+        LineFood.active.other_restaurant(@ordered_food.restaurant.id).each do |line_food|
+        # 他店舗のactiveなLneFood一覧を取得し、そのままeachに渡す
+          line_food.update_attribute(:active, false)
+          # こうすることで他店舗のLineFood一つづつに対してupfate_attributeで更新している
+          # 更新内容は引数に渡された(:active, false)で、line_food.activeをfalseにするという意味。
+        end
+
+        set_line_food(@ordered_food)
+
+        if @line_food.save
+          render json: { #　saveが成功した場合,status:created、@line_foodを
+            line_food: @line_food
+          }, status: :created
+        else
+          render json: {}, status: :internal_server_error
+        end
+      end
+
 
       private
 
