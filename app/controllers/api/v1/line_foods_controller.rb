@@ -8,12 +8,17 @@ module Api
         if line_foods.exists? # line_foodが空かどうかをチェック
           render json: {
             line_food_ids: line_foods.map { |line_food| line_food.id },
+            # 登録されているLineFoodのidを配列形式にしている。rubyのmapメソッドは配列やオブジェクトなどを一つずつ取り出し、mapより後ろのブロックを当てていきます
             restaurant: line_foods[0].restaurant,
+            # 一つの仮注文につき一つの店舗という仕様のため、line_foodsの中にある先頭のline_foodインスタンスの店舗の情報を詰めている
             count: line_foods.sum { |line_food| line_food[:count] },
+            # line_foodインスタンスには数量を表す:countがある。計算はサーバーサイドの方がいい
             amount: line_foods.sum { |line_food| line_food.total_amount },
+            # amounrには各line_foodがインスタンスメソッドtotal_amountを呼んで[数量*単価]のさらに合計を計算している
           }, status: :ok
         else
-          render json: {}, status: :no_content
+          render json: {}, # 空データとstatus: :no-contentを返します
+          status: :no_content
         end
       end
 
@@ -21,6 +26,7 @@ module Api
       def create # 仮注文の作成
         if LineFood.active.other_restaurant(@ordered_food.restaurant.id).exists?
           # 他店舗での仮注文がすでにある場合例外処理 exists？で例外があるか判断している
+          # .exists?メソッドは対象のインスタンスのデータがDBに存在するかどうか？をtrue,falseで返す
           return render json: {
             existing_restaurant: LineFood.other_restaurant(@ordered_food.restaurant.id).first.restaurant.name,
             new_restaurant: Food.find(params[:food_id]).restaurant.name,
