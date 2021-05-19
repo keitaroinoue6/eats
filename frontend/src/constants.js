@@ -1,4 +1,4 @@
-export const REQUEST_STAGE = { //APIリクエスト中に画面が今どういう状態なのかを知るための状態です
+export const REQUEST_STATE = { //APIリクエスト中に画面が今どういう状態なのかを知るための状態です
   INITISL: 'INITISL',
   LOADING: 'LOADING',
   OK: 'OK',
