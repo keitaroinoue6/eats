@@ -1,9 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
-export const Foods = () => {
+export const Foods = (props) => {
   return (
-    <Fragment>
+    <>
       フード一覧
-    </Fragment>
+      <p>
+        restaurantsIdは {props.match.params.restaurantsId} です
+      </p>
+    </>
   )
 }
