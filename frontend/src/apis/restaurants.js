@@ -1,10 +1,10 @@
 //レストラン一覧のAPIを呼ぶ関数だけのがファイル
 
 import axios from 'axios'
-import { restaurantIndex } from '../urls/index'
+import { restaurantsIndex } from '..//urls/index'
 
 export const fetchRestaurants = () => {
-  return axios.get(restaurantIndex) //今回はgetですが、POSTであればaxios.post()のようになります。
+  return axios.get(restaurantsIndex) //今回はgetですが、POSTであればaxios.post()のようになります。
   .then(res => { //成功した場合の処理 resという名前で取得し、res.dataでレスポンスの中身だけをreturnしています
     return res.data
   })
