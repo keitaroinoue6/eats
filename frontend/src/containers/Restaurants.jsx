@@ -45,12 +45,14 @@ const MainCover = styled.img`
   height: 600px;
 `;
 
+//レストラン一覧の全体
 const RestaurantsContentsList = styled.div`
   display: flex;
   justify-content: space-around;
   margin-bottom: 150px;
 `;
 
+//一つ一つのitem
 const RestaurantsContentWrapper = styled.div`
   width: 450px;
   height: 300px;
@@ -96,16 +98,17 @@ export const Restaurants = () => {
       <MainCoverImageWrapper>
         <MainCover src={MainCoverImage} alt="main cover" />
       </MainCoverImageWrapper>
-      <RestaurantsContentsList>
+      <RestaurantsContentsList> 
         {
-          state.fetchState === REQUEST_STATE.LOADING?
+          state.fetchState === REQUEST_STATE.LOADING? 
+          //初期状態をのぞいて二つの状態が、一つはロード状態を表すREQUEST_STAGE.LOADING。REQUEST_STAGE.OK
             <>
+              <Skeleton variant="rect" width={450} height={300} /> 
               <Skeleton variant="rect" width={450} height={300} />
               <Skeleton variant="rect" width={450} height={300} />
-              <Skeleton variant="rect" width={450} height={300} />
-            </>
-          :
-            state.restaurantsList.map((item, index) =>
+            </> //四角形(rect)の横幅450,縦が300
+          : //データが届くとREQUEST_STATE.LOADINGではなくなるので：以降がレンダリングされる
+            state.restaurantsList.map((item, index) => //配列のデータなのでmapメソッド
               <Link to={`/restaurants/${item.id}/foods`} key={index} style={{textDecoration: 'none'}}>
                 <RestaurantsContentWrapper>
                   <RestaurantsImageNode src={RestaurantImage}/>
