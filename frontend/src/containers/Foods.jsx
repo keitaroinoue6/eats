@@ -19,3 +19,6 @@ export const Foods = (props) => {
     </>
   )
 }
+
+//restaurantsIdををコンポーネントが受け取ってリクエストに乗せるためには、
+//matchオブジェクト
