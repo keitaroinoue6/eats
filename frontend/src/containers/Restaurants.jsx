@@ -24,7 +24,7 @@ import MainCoverImage from '../images/main-cover-image.png'
 
 import RestaurantImage from '../images/restaurant-image.jpg'
 
-//ページの一番上部にあるヘッダー全体を定義
+//ページの一番上部にあるヘッダー全体を定義している
 const HeaderWrapper = styled.div` 
   display: flex;
   justify-content: flex-start;
