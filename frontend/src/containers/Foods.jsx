@@ -28,6 +28,15 @@ const ColoredBagIcon = styled(LocalMallIcon)`
   color: ${COLORS.MAN}; 
 `;
 
+const BagIconWrapper = styled.div`
+  padding-top: 24px;
+`;
+
+//
+const ColoredBagIcon = styled(LocalMallIcon)`
+  color: ${COLORS .MAIN};
+`
+
 
 
 export const Foods = (props) => {
