@@ -19,6 +19,14 @@ import styled from  'styled-components';
 import { COLORS } from '..//style_constants';
 import { LocalMallIcon} from '..//components/Icons';
 
+//ヘッダー部分はレストランの一覧のページと同じだが、同じ行にバックアイコンがある。なのでspace-betweenを使う
+const HeaderWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 32px;
+`;
+
+
 const BagIconWrapper = styled.div`
   padding-top: 24px;
 `;
@@ -27,17 +35,6 @@ const BagIconWrapper = styled.div`
 const ColoredBagIcon = styled(LocalMallIcon)`
   color: ${COLORS.MAN}; 
 `;
-
-const BagIconWrapper = styled.div`
-  padding-top: 24px;
-`;
-
-//
-const ColoredBagIcon = styled(LocalMallIcon)`
-  color: ${COLORS .MAIN};
-`
-
-
 
 export const Foods = (props) => {
   //foodsInitialStateをuseReducerに渡している。
