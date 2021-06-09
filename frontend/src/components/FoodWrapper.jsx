@@ -17,3 +17,9 @@ const Wrapper = styled.div`
     border-image: initial;
     cursor: pointer;
 `;
+
+const FoodDetail = styled.div`
+    padding: 24px 16px;
+    width: 250px;
+`;
+
