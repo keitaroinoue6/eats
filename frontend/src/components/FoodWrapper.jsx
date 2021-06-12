@@ -23,3 +23,6 @@ const FoodDetail = styled.div`
     width: 250px;
 `;
 
+const DescriptionWrapper = styled.div`
+    height: 75px;
+`;
