@@ -26,3 +26,7 @@ const FoodDetail = styled.div`
 const DescriptionWrapper = styled.div`
     height: 75px;
 `;
+
+const PriceWrapper = styled.div`
+    margin-top: 16px;
+`;
