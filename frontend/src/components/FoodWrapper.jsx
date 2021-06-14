@@ -30,3 +30,7 @@ const DescriptionWrapper = styled.div`
 const PriceWrapper = styled.div`
     margin-top: 16px;
 `;
+
+const FoodImageNode = styled.img`
+    width: 250px;
+`;
