@@ -34,3 +34,9 @@ const PriceWrapper = styled.div`
 const FoodImageNode = styled.img`
     width: 250px;
 `;
+
+export const FoodWrapper = ({
+    food,
+    onClickFoodWrapper,
+    imageUrl,
+    }) => 
