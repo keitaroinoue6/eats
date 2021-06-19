@@ -19,6 +19,10 @@ import styled from  'styled-components';
 import { COLORS } from '..//style_constants';
 import { LocalMallIcon} from '..//components/Icons';
 
+import { FoodWrapper } from '../components/FoodWrapper';
+import Skeleton from '@material-ui/lab/Skeleton';
+
+
 //ヘッダー部分はレストランの一覧のページと同じだが、同じ行にバックアイコンがある。なのでspace-betweenを使う
 const HeaderWrapper = styled.div`
   display: flex;
