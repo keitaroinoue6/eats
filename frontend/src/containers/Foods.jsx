@@ -12,6 +12,11 @@ import {initialState as foodsInitialState, foodsActionTypes, foodsReducer} from 
 //apis
 import { fetchFoods } from '../apis/foods';
 
+//images
+import MainLogo from '../images/logo.png';
+import FoodImage from '../images/food-image.jpg';
+
+
 //constants
 import { REQUEST_STATE } from '../constants';
 
